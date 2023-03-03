@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "874018730122",
+    "project_id": "loginblo",
+    "storage_bucket": "loginblo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874018730122:android:ee97a33141537e59b23d73",
+        "android_client_info": {
+          "package_name": "com.example.untitled3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874018730122-dv5fhlanrc9lv3mgeljfq02bh2vb0de9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.untitled3",
+            "certificate_hash": "b056b9817b56fe4a925ef1b26ae9dd9245756a01"
+          }
+        },
+        {
+          "client_id": "874018730122-c6gb76hi9b32g64o7ue8p376ugv1p74q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATiIZ-gFzva_HNnqBQN4LssO-e-F5JG7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874018730122-c6gb76hi9b32g64o7ue8p376ugv1p74q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
