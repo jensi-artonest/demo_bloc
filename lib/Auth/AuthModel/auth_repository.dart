@@ -57,11 +57,10 @@ class AuthRepository {
   bool cheakUser(){
     var firebaseAuth = FirebaseAuth.instance;
     var user = firebaseAuth.currentUser;
-    if(user!=null){
+    if(user!.uid !=null){
       return true;
     }else{
       return false;
     }
   }
-
 }

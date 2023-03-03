@@ -27,9 +27,9 @@ class HomeView extends StatelessWidget {
           );
         }
         if (state is UserErrorState) {
-          return const Scaffold(body: Center(child: Text("ERROR OCCURRED")));
+          return Scaffold(body: Center(child: Text("ERROR OCCURRED")));
         }
-        if (state is UserLoadedState) {
+        else if (state is UserLoadedState) {
           List<UserModel> users = state.userData;
           List<UserModel> loginData = state.userLogin;
           return Scaffold(
@@ -50,7 +50,7 @@ class HomeView extends StatelessWidget {
                       Navigator.pushNamed(context, '/login');
                     },
                     child: const Text('LogOut'),
-                  )
+                  ),
                 ],
               ),
             ),

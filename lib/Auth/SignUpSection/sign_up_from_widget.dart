@@ -1,4 +1,3 @@
-
 // ignore_for_file: prefer_const_constructors, deprecated_member_use
 
 import 'package:firebase_database/firebase_database.dart';
@@ -21,19 +20,22 @@ class SignUpFormWidget extends StatelessWidget {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
-              content: Text("Invalid credentials"),backgroundColor: Colors.purple.shade100,
+              content: Text("Invalid credentials"),
+              backgroundColor: Colors.purple.shade100,
             ));
         } else if (state.status.isSubmissionCanceled) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
-              content: Text(state.exceptionError.toString()),backgroundColor: Colors.purple.shade100,
+              content: Text(state.exceptionError.toString()),
+              backgroundColor: Colors.purple.shade100,
             ));
         } else if (state.status.isSubmissionSuccess) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
-              content: Text("User register successfully!!"),backgroundColor: Colors.purple.shade100,
+              content: Text("User register successfully!!"),
+              backgroundColor: Colors.purple.shade100,
             ));
 
           Navigator.of(context)
@@ -57,9 +59,7 @@ class SignUpFormWidget extends StatelessWidget {
       ),
     );
   }
-
 }
-
 
 class _NameInputField extends StatelessWidget {
   const _NameInputField({Key? key}) : super(key: key);
@@ -143,7 +143,7 @@ class _ConfirmPasswordInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SignUpBloc, SignUpState>(
       buildWhen: (previous, current) =>
-      previous.confirmPassword != current.confirmPassword,
+          previous.confirmPassword != current.confirmPassword,
       builder: (context, state) {
         return CustomTextFiled(
             isPasswordField: true,
@@ -178,31 +178,26 @@ class _SignUpButton extends StatelessWidget {
             color: Colors.purpleAccent,
             onPressed: state.status.isValidated
                 ? () {
-              context.read<SignUpBloc>().add(const FormSubmission());
-              DatabaseService.getUser();
-              addData(state.name.value, state.email.value, state.password.value);
-            }
+                    context.read<SignUpBloc>().add(const FormSubmission());
+                    DatabaseService.getUser();
+                    addData(state.name.value, state.email.value, state.password.value);
+                  }
                 : null,
             child: state.status.isSubmissionInProgress
                 ? const SizedBox(
-                width: 30,
-                height: 30,
-                // color: Colors.red,
-                child: CircularProgressIndicator(
-                  color: Colors.red,
-                ))
+                    width: 30,
+                    height: 30,
+                    // color: Colors.red,
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ))
                 : const Text("Sign Up"),
           ),
         );
       },
     );
   }
-  void addData(String name, String email, String password) {
-    final databaseRef = FirebaseDatabase.instance.reference();
-    databaseRef
-        .push()
-        .set({'password': password, 'email': email, 'name': name});
-  }
+  void addData(String name, String email, String password) {}
 }
 
 class _LoginButton extends StatelessWidget {
@@ -233,18 +228,11 @@ class _LoginButton extends StatelessWidget {
 class DatabaseService {
   static getUser() async {
     DataSnapshot userSnapshot =
-    await FirebaseDatabase.instance.reference().child("user").get();
+        await FirebaseDatabase.instance.reference().child("user").get();
 
     print("++++++++++++++++++++++ ${userSnapshot.value}");
 
     List<UserModel> user = [];
     return user;
-
-    // Map<dynamic, dynamic> values = userSnapshot.value.;
-    // userSnapshot.value!.forEach((key, values) {
-    //   user.add(UserModel.fromjson(values));
-    // });
-    //
-    // return user;
   }
 }

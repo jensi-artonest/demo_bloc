@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,12 +13,12 @@ import 'package:untitled3/Auth/SignUpSection/sign_up_view.dart';
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    // name: "Elern",
-    // options: FirebaseOptions(
-    //     apiKey: 'AIzaSyAK1gRbV0onHC2Fy0tmZ3Lp-yvX2vEMrAM',
-    //     appId: Platform.isIOS ? '1:418577187722:ios:608178e4959f1a3171be73' : '1:418577187722:android:79b687ad72e45c5071be73',
-    //     messagingSenderId: '',
-    //     projectId: 'elern-66e96'),
+    name: "untitled3",
+    options: FirebaseOptions(
+        apiKey: 'AIzaSyATiIZ-gFzva_HNnqBQN4LssO-e-F5JG7A',
+        appId: Platform.isIOS ? '1:874018730122:ios:d2d03409eaba5c79b23d73' : '1:874018730122:android:ee97a33141537e59b23d73',
+        messagingSenderId: '',
+        projectId: 'loginblo'),
   );
   runApp(const MyApp());
 }
